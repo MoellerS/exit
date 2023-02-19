@@ -1,0 +1,97 @@
+<html>
+<style>
+    body{
+        background-image: url(blackwhite.jpeg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+.inner-content {
+	padding: 20px;
+	text-align: center;
+}
+
+.fs-logo {
+	width: 100%;
+	max-width: 623px;
+	margin; 0 auto;
+}
+
+.console-line
+{
+    font-family: monospace;
+    margin: 2px;
+}
+
+.title {
+	padding: 30px 0;
+	color: #FFFFFF;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+input#playersGuess {
+	max-width: 200px;
+	margin: 0 auto;
+	padding: 20px 10px;
+	margin-bottom: 40px;
+}
+.textfeld-msg{
+    font-size: 30px;
+    color: gold;
+}
+
+.submit {
+	margin-bottom: 15px;
+}
+
+.remaining {
+	color: #ba0b0b;
+	margin-top: 15px;
+	font-size: 20px;
+	font-weight: bold;
+}
+</style>
+<script>
+
+//Globale Variablen
+var ausgabe;
+const winningNumber = "10BDKA";
+console.log(winningNumber)
+
+// Timer
+
+//Player Guess Submission nach Button Betätigung
+
+	function playersGuessSubmission(){
+        console.log("Start Submission");
+		let playersGuess = document.querySelector("#playersGuess").value;
+		console.log(playersGuess);
+        if (playersGuess == winningNumber){
+            console.log("You have entered the correct code");
+            document.querySelector('.textfeld-msg').innerHTML = "Wir sind, die GEILSTEN!";
+        } 
+        else{
+            console.log("Leider falsch");
+            document.querySelector('.textfeld-msg').innerHTML = "Leider falsch";
+        }
+	}
+
+</script>
+<body>
+    <div class="inner-content">
+      
+      <h1 class="title">Welcome to the <br>Casino Royale</h1>
+      <div class="main-box">
+         <input type="text" id="playersGuess" placeholder="Enter the final Code" class="form-control input" >
+         <div class="textfeld-msg"></div>
+         <h3 id="status"></h3>
+         <button onclick='playersGuessSubmission()' type="button" class="btn btn-lg btn-info submit">Submit Your Code</button>
+        
+      </div>
+      <div class="buttons">
+         <button type="button" id="startCountdown" class="btn btn-lg btn-default">Start Countdown</button>
+         <button type="button" id="pauseCountdown" class="btn btn-lg btn-default">Pause Countdown</button>
+      </div>
+    </div>
+  </body>
+</html>
